@@ -13,13 +13,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter First Project',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
-          useMaterial3: true,
-        ),
-        home: HomeScreen());
+      title: 'Flutter First Project',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+        useMaterial3: true,
+      ),
+      home: HomeScreen(),
+    );
   }
 }
 
@@ -29,30 +30,63 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Color Layout'),
-          backgroundColor:Color.fromARGB(255, 45, 19, 192),
+      appBar: AppBar(
+        title: Text('Color Layout'),
+        backgroundColor: Color.fromARGB(255, 45, 19, 192),
+      ),
+      body: Center(
+        child: Stack(
+          children: [
+            Container(
+              width: 120,
+              height: 300,
+              decoration: BoxDecoration(
+                color: Colors.black, // Color moved inside decoration
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            Positioned(
+              top: 10,
+              right: 20,
+              child: Container(
+                width: 80,
+                height: 80, // Must be equal for a circle
+
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+            Positioned(
+              top: 100,
+              right: 20,
+              child: Container(
+                width: 80,
+                height: 80,
+                // Must be equal for a circle
+                decoration: BoxDecoration(
+                  color: Colors.yellow,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+            Positioned(
+              top: 190,
+              right: 20,
+              child: Container(
+                width: 80,
+                height: 80,
+                // Must be equal for a circle
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+          ],
         ),
-        body: Center(child: 
-        Stack(children: [
-          Container(
-            width: 200,
-            height: 200,
-            color: Colors.blue
-          ),
-          Positioned(top:20,left: 30,
-          child: Container(
-            width: 50,
-            height: 50,
-            color: Colors.red
-          ),),
-          Positioned(bottom:20,right: 30,
-          child: Container(
-            width: 50,
-            height: 50,
-            color: Colors.yellow
-          ),)
-         
-        ],),));
+      ),
+    );
   }
 }
