@@ -34,29 +34,16 @@ class HomeScreen extends StatelessWidget {
         title: Text('Color Layout'),
         backgroundColor: Color.fromARGB(255, 45, 19, 192),
       ),
-      body: ListView(
-        children: [
-          Container(
-            height: 350,
-            width: double.infinity,
-            color: Colors.grey,
-            child: Text("item 1"),
-            ),
-            Container(
-            height: 350,
-            width: double.infinity,
-            color: Colors.red,
-            child: Text("item 2"),
-            ),
-            Container(
-            height: 350,
-            width: double.infinity,
-            color: Colors.yellow,
-            child: Text("item 3"),
-            ),
+      body: ListView.builder(
+        itemCount:100,
+        itemBuilder: (context,index){
+          return ListTile(
+            title: Text("Item $index"),
             
-        ],
-      )
-    );
+          );
+
+        },
+
+      ));
   }
 }
