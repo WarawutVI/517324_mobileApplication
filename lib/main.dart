@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 45, 19, 192),
       ),
       body: Center(
-        child: ElevatedButton(onPressed:(){
+        child: TextButton(onPressed:(){
           print('Button Pressed');
         }, child: Text("Click me")) ,)
     );
