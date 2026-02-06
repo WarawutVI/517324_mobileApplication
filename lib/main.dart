@@ -34,13 +34,16 @@ class HomeScreen extends StatelessWidget {
         title: Text('Color Layout'),
         backgroundColor: Color.fromARGB(255, 45, 19, 192),
       ),
-      body: ListView.separated(
-        itemCount: 15,
+     
+      body: ListView.builder(
+        itemCount: 150,
         itemBuilder: (context, index){
-          return Text("Item $index");
-        },
-        separatorBuilder: (context, index){
-          return Divider();
+          return ListTile(
+            leading: Icon(Icons.list_alt),
+            title: Text('Item $index'),
+            subtitle: Text("LoremplormLoremploLoremplo"),
+            trailing: Icon(Icons.add),
+          );
         },
       ));
   }
