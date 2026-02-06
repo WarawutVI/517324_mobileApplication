@@ -31,15 +31,21 @@ class HomeScreen extends StatelessWidget {
           title: Text('First Time App'),
           backgroundColor:Colors.white,
         ),
-        body: Center(
-          child: Container(
-            width: 250,
-            height: 250,
-            color: Colors.blue,
-            child: Center(
-              child: Text("Hello,Warawut Vichaiya 660710115", style:TextStyle(fontSize: 35),textAlign: TextAlign.center),
-            ),
-          ),
-        ));
+        body:Center(child: 
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:[
+            Container(
+              height:100,
+              width:100,
+              color:Colors.red,
+            ),Container(
+              height:100,
+              width:100,
+              color:Colors.blue,
+            )
+          ]
+        )
+        ,));
   }
 }
