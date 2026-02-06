@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,25 +30,40 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('First Time App'),
-          backgroundColor:Colors.white,
+          title: Text('Color Layout'),
+          backgroundColor:Color.fromARGB(255, 45, 19, 192),
         ),
-        body:Center(child: 
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:[
+        body: Column(children: [SizedBox(height: 20,),
+          Row(
+            children: [SizedBox(width: 20,),
             Container(
-              height:100,
-              width:100,
-              color:Colors.red,
-            ),Expanded(child:
+              height: 100,
+              width: 100,
+              color: Colors.red,
+            ),SizedBox(width: 20,)
+            , Container(
+              height: 100,
+              width: 100,
+              color: Colors.green,
+            ),SizedBox(width: 20,), Container(
+              height: 100,
+              width: 100,
+              color: Colors.blue,
+            ),
+          ],),SizedBox(height: 20,)
+          ,
+          Row(children: [
+            SizedBox(width: 20,),
             Container(
-              height:100,
-              width:100,
-              color:Colors.blue,
-            ) )
-          ]
-        )
-        ,));
+              height: 100,
+              width: 100,
+              color: Colors.yellow,
+            ),SizedBox(width: 20,)
+            ,Expanded(
+             child: Container(height: 100,width: 100,color: Colors.purple, ),
+             flex: 2,
+             ),SizedBox(width: 20,)
+          ],),
+        ],));
   }
 }
