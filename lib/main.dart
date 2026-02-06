@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
           backgroundColor:Colors.white,
         ),
         body:Center(child: 
-        Row(
+        Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children:[
             Container(
