@@ -35,58 +35,9 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 45, 19, 192),
       ),
       body: Center(
-        child: Stack(
-          children: [
-            Container(
-              width: 120,
-              height: 300,
-              decoration: BoxDecoration(
-                color: Colors.black, // Color moved inside decoration
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-            Positioned(
-              top: 10,
-              right: 20,
-              child: Container(
-                width: 80,
-                height: 80, // Must be equal for a circle
-
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ),
-            Positioned(
-              top: 100,
-              right: 20,
-              child: Container(
-                width: 80,
-                height: 80,
-                // Must be equal for a circle
-                decoration: BoxDecoration(
-                  color: Colors.yellow,
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ),
-            Positioned(
-              top: 190,
-              right: 20,
-              child: Container(
-                width: 80,
-                height: 80,
-                // Must be equal for a circle
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  shape: BoxShape.circle,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+        child: ElevatedButton(onPressed:(){
+          print('Button Pressed');
+        }, child: Text("Click me")) ,)
     );
   }
 }
