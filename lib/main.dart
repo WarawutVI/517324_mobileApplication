@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:my_app/screen/greeting_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,32 +20,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
         useMaterial3: true,
       ),
-      home: HomeScreen(),
+      home: GreetingScreen(name:"SunRai", bgColor:Colors.green) ,
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Color Layout'),
-        backgroundColor: Color.fromARGB(255, 45, 19, 192),
-      ),
-     
-      body: ListView.builder(
-        itemCount: 150,
-        itemBuilder: (context, index){
-          return ListTile(
-            leading: Icon(Icons.list_alt),
-            title: Text('Item $index'),
-            subtitle: Text("LoremplormLoremploLoremplo"),
-            trailing: Icon(Icons.add),
-          );
-        },
-      ));
-  }
-}
+
+
