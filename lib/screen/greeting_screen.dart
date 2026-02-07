@@ -1,3 +1,4 @@
+import 'package:my_app/components/like_card.dart';
 import 'package:my_app/components/profile_card.dart';
 import 'package:my_app/components/text_card.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +22,10 @@ class GreetingScreen extends StatelessWidget {
             text: "Good Afternoon",
             color: Colors.greenAccent,
           ),
-          SizedBox(height: 10),
-          ProfileCard(imageUrl: this.imageUrl,name: this.name,)
-         
+          SizedBox(height: 20),
+          ProfileCard(imageUrl: this.imageUrl,name: this.name,),
+          SizedBox(height: 20),
+          LikeCard(),
         ],
       )),
     );
