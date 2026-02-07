@@ -28,12 +28,13 @@ class GreetingScreen extends StatelessWidget {
           SizedBox(height: 40),
           LikeCard(),
           ElevatedButton(onPressed: (){
-            Navigator.push(context, 
-            MaterialPageRoute<void>(
-              builder: (BuildContext context){
-                return ContentScreen();
-              }
-            )); 
+            // Navigator.push(context, 
+            // MaterialPageRoute<void>(
+            //   builder: (BuildContext context){
+            //     return ContentScreen();
+            //   }
+            // )); 
+            Navigator.pushNamed(context, '/content');
           }, child: Text("Go to Content Screen"))
         ],
       )),
