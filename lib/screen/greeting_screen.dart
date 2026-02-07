@@ -24,7 +24,7 @@ class GreetingScreen extends StatelessWidget {
           ),
           SizedBox(height: 20),
           ProfileCard(imageUrl: this.imageUrl,name: this.name,),
-          SizedBox(height: 20),
+          SizedBox(height: 40),
           LikeCard(),
         ],
       )),

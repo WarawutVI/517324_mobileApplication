@@ -16,9 +16,11 @@ class _LikeCardState extends State<LikeCard> {
       child: Column(
         children: [
           Text(count.toString(),
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+              
+          
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               IconButton(
                 onPressed: () {
@@ -28,6 +30,7 @@ class _LikeCardState extends State<LikeCard> {
                 },
                 icon: Icon(Icons.add),
                 color: Colors.redAccent,
+                iconSize: 40,
                 
               ), IconButton(
                 onPressed: () {
@@ -37,12 +40,13 @@ class _LikeCardState extends State<LikeCard> {
                 },
                 icon: Icon(Icons.remove),
                 color: Colors.redAccent,
+                iconSize: 40,
               ),TextButton(
                 onPressed: (){
                   setState(() {
                     count=0;
                   });
-                }, child: Text("Reset",style: TextStyle(color: Colors.redAccent),))
+                }, child: Text("Reset",style: TextStyle(color: Colors.redAccent,fontWeight: FontWeight.bold,fontSize: 20),))
             ],
           ),
         ],
