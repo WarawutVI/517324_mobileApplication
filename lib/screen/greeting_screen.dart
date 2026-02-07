@@ -2,6 +2,7 @@ import 'package:my_app/components/like_card.dart';
 import 'package:my_app/components/profile_card.dart';
 import 'package:my_app/components/text_card.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/screen/content_screen.dart';
 
 class GreetingScreen extends StatelessWidget {
   final String name;
@@ -26,6 +27,14 @@ class GreetingScreen extends StatelessWidget {
           ProfileCard(imageUrl: this.imageUrl,name: this.name,),
           SizedBox(height: 40),
           LikeCard(),
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, 
+            MaterialPageRoute<void>(
+              builder: (BuildContext context){
+                return ContentScreen();
+              }
+            )); 
+          }, child: Text("Go to Content Screen"))
         ],
       )),
     );
