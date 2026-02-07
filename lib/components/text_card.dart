@@ -13,7 +13,6 @@ class TextCard extends StatelessWidget {
         color: color,
         boxShadow:[ BoxShadow(color: Colors.black, spreadRadius: 2)],
       ),
-
       padding: EdgeInsets.all(10),
       child: Text(
         text,

@@ -1,14 +1,17 @@
+import 'package:my_app/components/profile_card.dart';
 import 'package:my_app/components/text_card.dart';
 import 'package:flutter/material.dart';
 
 class GreetingScreen extends StatelessWidget {
   final String name;
   final Color bgColor;
-  const GreetingScreen({super.key, required this.name, required this.bgColor});
+  final String imageUrl ;
+  const GreetingScreen({super.key, required this.name, required this.bgColor, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: bgColor,
       body: Center(
           child: Column(
@@ -19,15 +22,8 @@ class GreetingScreen extends StatelessWidget {
             color: Colors.greenAccent,
           ),
           SizedBox(height: 10),
-          TextCard(
-            text: name,
-            color: Colors.yellowAccent,
-          ),
-          SizedBox(height: 10),
-          TextCard(
-            text: "Good luck have fun!",
-            color: Colors.purpleAccent,
-          ),
+          ProfileCard(imageUrl: this.imageUrl,name: this.name,)
+         
         ],
       )),
     );
