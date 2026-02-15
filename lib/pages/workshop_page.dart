@@ -1,5 +1,6 @@
 import 'dart:ffi';
 
+import 'package:my_app/pages/workshop_formInfo.dart';
 import 'package:flutter/material.dart';
 
 class WorkshopPage extends StatefulWidget {
@@ -18,6 +19,11 @@ class _WorkshopPageState extends State<WorkshopPage> {
 
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =TextEditingController();
+  final TextEditingController _NamewordController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  bool _isObscurePass = true;
+  bool _isObscureConfirmPass = true;
   Widget build(BuildContext context) {
     return Scaffold(
       body: Form(
@@ -25,52 +31,162 @@ class _WorkshopPageState extends State<WorkshopPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("display : $strInput"),
-            SizedBox(height: 20),
-            Text("display : $name"),
-            SizedBox(height: 20),
+            Container(
+              width: 400,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child:  Center(
+                child:Text("Registration Form", 
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)) 
+              ),
+            ),
+          
+            Padding(padding:  EdgeInsets.all(20)
+            ,child: Column(
+              children: [
+                 
             TextFormField(
               controller: _usernameController, // connect to text field
               decoration: const InputDecoration(
-                // border: OutlineInputBorder(),
-                icon: Icon(Icons.person),
+                border: OutlineInputBorder(),
+                
                 labelText: "Username",
               ),
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
-                  return "Please enter your name";
+                  return "Please enter your username";
                 }
               },
-              onChanged: (String value) {
-                setState(() {
-                  name = value;
-                });
-              },
-            ),
+              
+            ),SizedBox(height: 20),
             TextFormField(
-              obscureText: true, //hide password
+              obscureText: _isObscurePass, //hide password
               controller: _passwordController,
-              decoration: const InputDecoration(
+              
+              decoration: InputDecoration(
                 // connect to text field
-                icon: Icon(Icons.lock),
+                border: const OutlineInputBorder(),
                 labelText: "Password",
+                suffixIcon: IconButton(
+                  icon: Icon(_isObscurePass ? Icons.visibility : Icons.visibility_off),
+                  onPressed: () {
+                    setState(() {
+                      _isObscurePass = !_isObscurePass;
+                    });
+                  },
+                ),
+                
               ),
               validator: (String? value) {
                 if (value == null || value.isEmpty) {
                   return "Please enter your password";
                 }
               },
-              // onChanged: (String value) { // use checking real time
-              //   // setState(() {});
-              // },
+              
+            ),SizedBox(height: 20),
+            TextFormField(
+              obscureText: _isObscureConfirmPass, //hide password
+              controller: _confirmPasswordController,
+              decoration: InputDecoration(
+                // connect to text field
+                border: const OutlineInputBorder(),
+                labelText: "Confirm Password",
+                suffixIcon: IconButton(
+                  icon: Icon(_isObscureConfirmPass ? Icons.visibility : Icons.visibility_off),
+                  onPressed: () {
+                    setState(() {
+                      _isObscureConfirmPass = !_isObscureConfirmPass;
+                    });
+                  },
+                ),
+              ),
+              validator: (String? value) {
+                if (value == null || value.isEmpty) {
+                  return "Please enter your confirm password";
+                } else if (value != _passwordController.text) {
+                  return "Password does not match";
+                }
+              },
+            ),
+              ],
+            ))
+            ,
+           
+            SizedBox(height: 20),
+            Row(
+              children: [
+                SizedBox(width: 20),
+                Expanded(
+                  child: TextFormField(
+                    controller: _NamewordController,
+                    decoration: const InputDecoration(labelText: "First Name"),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return "Please enter your first name";
+                      }
+                    },
+                  ),
+                ),
+                SizedBox(width: 20),
+                Expanded(
+                  child: TextFormField(
+                    controller: _lastNameController,
+                    decoration: const InputDecoration(labelText: "Last Name"),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return "Please enter your last name";
+                      }
+                    },
+                  ),
+                ),
+                SizedBox(width: 20),
+              ],
             ),
             SizedBox(height: 20),
+            
+            // TextButton(onPressed: () {
+            //     if (_formKey.currentState!.validate()) {
+            //       Navigator.push(
+            //         context,
+            //         MaterialPageRoute<void>(
+            //           builder: (BuildContext context) {
+            //             return WorkshopForminfo(
+            //               username: _usernameController.text,
+            //               password: _passwordController.text,
+            //               name: _NamewordController.text,
+            //               lastName: _lastNameController.text,
+            //             );
+            //           },
+            //         ),
+            //       );
+            //     } else {
+            //       setState(() {
+            //         strInput = "Form is invalid";
+            //       });
+            //     }
+            //   } , child: Text("Save", style: TextStyle(fontSize: 20))),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue, 
+                foregroundColor: Colors.white, 
+              ),
               onPressed: () {
                 if (_formKey.currentState!.validate()) {
-                  setState(() {
-                    strInput = "password: ${_passwordController.text}";
-                  });
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                      builder: (BuildContext context) {
+                        return WorkshopForminfo(
+                          username: _usernameController.text,
+                          password: _passwordController.text,
+                          name: _NamewordController.text,
+                          lastName: _lastNameController.text,
+                        );
+                      },
+                    ),
+                  );
                 } else {
                   setState(() {
                     strInput = "Form is invalid";
@@ -79,23 +195,15 @@ class _WorkshopPageState extends State<WorkshopPage> {
               },
               child: Text("Save"),
             ),
-            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                _usernameController.clear();
-                _passwordController.clear();
                 setState(() {
-                  strInput = "";
-                  name = "";
+                  _usernameController.text = "test123";
+                  _passwordController.text = "password";
+                  _confirmPasswordController.text = "password";
+                  _NamewordController.text = "John";
+                  _lastNameController.text = "Doe";
                 });
-              },
-              child: Text("clear"),
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                _usernameController.text = "admin";
-                _passwordController.text = "123456";
               },
               child: Text("Auto fill"),
             ),
