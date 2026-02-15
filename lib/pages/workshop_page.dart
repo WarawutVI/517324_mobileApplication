@@ -12,7 +12,7 @@ class WorkshopPage extends StatefulWidget {
 class _WorkshopPageState extends State<WorkshopPage> {
   @override
   String strInput = "";
-  String name="";
+  String name = "";
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -25,8 +25,10 @@ class _WorkshopPageState extends State<WorkshopPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("display : $strInput"),SizedBox(height: 20),
-            Text("display : $name"),SizedBox(height: 20),
+            Text("display : $strInput"),
+            SizedBox(height: 20),
+            Text("display : $name"),
+            SizedBox(height: 20),
             TextFormField(
               controller: _usernameController, // connect to text field
               decoration: const InputDecoration(
@@ -44,13 +46,12 @@ class _WorkshopPageState extends State<WorkshopPage> {
                   name = value;
                 });
               },
-
             ),
             TextFormField(
               obscureText: true, //hide password
               controller: _passwordController,
               decoration: const InputDecoration(
-                 // connect to text field
+                // connect to text field
                 icon: Icon(Icons.lock),
                 labelText: "Password",
               ),
@@ -77,6 +78,26 @@ class _WorkshopPageState extends State<WorkshopPage> {
                 }
               },
               child: Text("Save"),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                _usernameController.clear();
+                _passwordController.clear();
+                setState(() {
+                  strInput = "";
+                  name = "";
+                });
+              },
+              child: Text("clear"),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                _usernameController.text = "admin";
+                _passwordController.text = "123456";
+              },
+              child: Text("Auto fill"),
             ),
           ],
         ),
