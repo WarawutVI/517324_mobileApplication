@@ -16,7 +16,9 @@ class _ForminputState extends State<Forminput> {
     return Scaffold(
       appBar: AppBar(title: const Text('Register Form')), //AppBar
       body: Form(
-        child: Column(
+        child: Padding(padding: EdgeInsets.symmetric(horizontal: 20), 
+        
+        child:   Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextFormField(
@@ -95,7 +97,10 @@ class _ForminputState extends State<Forminput> {
             ),
           ],
         ),
-      ), //Column
-    );
+        
+        
+     
+      )));
+
   }
 }
