@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:my_app/Homeworks/answer_portal.dart';
 import 'package:my_app/components/Narbar.dart';
+import 'package:my_app/pages/callapi_page.dart';
 import 'package:my_app/pages/dropDonw_page.dart';
 import 'package:my_app/pages/formInput.dart';
 import 'package:my_app/pages/formPage.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter First Project',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/forminput',
+      initialRoute: '/callapi',
       routes: {
         // "/greeting": (context) => GreetingScreen(name:"Warawut Vichaiya", bgColor:Colors.white,imageUrl: "https://www.metlifepetinsurance.com/content/dam/metlifecom/us/metlifepetinsurance/images/blog/breed-spotlight/pug.webp",),
         // "/content": (context) => ContentScreen(),
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         "/dropdown": (context) => DropdonwPage(),
         "/checkbox": (context) => CheckboxPage(),
         "/forminput": (context) => Forminput(),
+        "/callapi": (context) => CallapiPage(),
       },
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 224, 128, 248)),
