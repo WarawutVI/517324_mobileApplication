@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class WorkshopPage extends StatefulWidget {
@@ -10,14 +12,15 @@ class WorkshopPage extends StatefulWidget {
 class _WorkshopPageState extends State<WorkshopPage> {
   @override
   String strInput = "";
-
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Column(
+      body:Form(
+        key: _formKey,
+        child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text("display : $strInput"),
+        children: [
           TextFormField(
-      
           decoration: const InputDecoration(
             border: OutlineInputBorder(),
             icon: Icon( Icons.person),
@@ -26,11 +29,11 @@ class _WorkshopPageState extends State<WorkshopPage> {
             if (value == null || value.isEmpty) {
               return "Please enter your name";
             }
-            return null;
+          
           },
           onChanged: (String value) {
             setState(() {
-              strInput = value;
+              // strInput = value;
             });
           },
         ),
@@ -43,19 +46,27 @@ class _WorkshopPageState extends State<WorkshopPage> {
             if (value == null || value.isEmpty) {
               return "Please enter your password";
             }
-            return null;
+          
           },
           onChanged: (String value) {
             setState(() {
               
             });
           },
-        ),
-        TextButton(onPressed:(){
-          print("summit");
-        }, child: Text("Submit"))
+        ),SizedBox(height: 20,) ,
+        ElevatedButton(onPressed: (){
+          if(_formKey.currentState!.validate()){
+            setState(() {
+              strInput ="Form is valid";
+            });
+          }else{
+            setState(() {
+              strInput = "Form is invalid";
+            });
+          }
+        }, child:Text("Save"))
         ],
-      )
+      ))
     );;
   }
 }
