@@ -1,16 +1,16 @@
 import 'dart:ffi';
 
-import 'package:my_app/pages/workshop_formInfo.dart';
+import 'package:my_app/pages/formPageInfo.dart';
 import 'package:flutter/material.dart';
 
-class WorkshopPage extends StatefulWidget {
-  const WorkshopPage({super.key});
+class Formpage extends StatefulWidget {
+  const Formpage({super.key});
 
   @override
-  State<WorkshopPage> createState() => _WorkshopPageState();
+  State<Formpage> createState() => _FormpageState();
 }
 
-class _WorkshopPageState extends State<WorkshopPage> {
+class _FormpageState extends State<Formpage> {
   @override
   String strInput = "";
   String name = "";
