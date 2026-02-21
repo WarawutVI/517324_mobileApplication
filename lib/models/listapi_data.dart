@@ -1,16 +1,28 @@
-import 'package:flutter/material.dart';
-
 class Userlist {
   final int id;
-  final String firstname;
+  final String firstName;
+  final String lastName;
+  final String fullName;
+  final String email;
 
-  Userlist(this.id, this.firstname);
+  //Constructor
+  Userlist(this.id, this.firstName, this.lastName, this.fullName, this.email);
 
+  //convert json to Map
   Userlist.fromJson(Map<String, dynamic> json)
-    : id = json['id'],
-      firstname = json["fristname"];
+      : id = json['id'],
+        firstName = json['firstName'],
+        lastName = json['lastName'],
+        fullName = json['firstName'] + ' ' + json['lastName'],
+        email = json['email'];
 
+  //convert map to json
   Map<String, dynamic> toJson() {
-    return {"id": id, "fistname": firstname};
+    return {
+      'id': id,
+      'firstName': firstName,
+      'lastName': lastName,
+      'email': email
+    };
   }
 }
