@@ -29,6 +29,7 @@ class _PmPageState extends State<PmPage> {
         });
         print(' ${pmData?.city}');
         print(' ${pmData?.color}');
+        print("${pmData?.t}");
       } else {
         print('Failed to fetch data');
       }
@@ -47,23 +48,48 @@ class _PmPageState extends State<PmPage> {
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 20,),
-            Text('${pmData?.city}', style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold )),
-            SizedBox(height: 40,),
+            SizedBox(height: 20),
+           Text(
+              '${pmData?.city}',
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 40),
             Container(
               height: 200,
               width: 300,
               color: pmData?.color,
-              child:  Center(child:Text('${pmData?.aqi}',style: TextStyle(fontSize: 70,color: Colors.white),)),
+              child: Center(
+                child: Text(
+                  '${pmData?.aqi}',
+                  style: TextStyle(fontSize: 70, color: Colors.white),
+                ),
+              ),
             ),
-            SizedBox(height: 40,),
-            Text('${pmData?.state}', style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: pmData?.color )),
-            SizedBox(height: 100,),
+            SizedBox(height: 40),
+            Text(
+              '${pmData?.state}',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: pmData?.color,
+              ),
+            ),
+            SizedBox(height: 30),
+            Text(
+              'temperature: ${pmData?.t} °C',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                
+              ),
+            ),
+            SizedBox(height: 80),
             ElevatedButton(
               onPressed: () {
                 fetchUser();
               },
-              child: Text('Refresh'),
+              child: Text('Refresh',style:TextStyle(color: Colors.white),),
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.green, ),
             ),
           ],
         ),

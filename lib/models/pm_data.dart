@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 
 class PmData {
 
-  final String city;
+  String city;
   final int aqi;
   Color? color;
   String? state;
+  final int t;
 
   // Constructor
-  PmData(this.city,this.aqi){
+  PmData(this.city,this.aqi,this.t){
    setColor(aqi);  
   }
 
@@ -17,10 +18,14 @@ class PmData {
  // แก้ไขตรงนี้: เรียก setColor ใน fromJson ด้วย
   PmData.fromJson(Map<String, dynamic> json)
       : city = json['data']['city']['name'],
-        aqi = json['data']['aqi']
-       { setColor(aqi);  }
+        aqi = json['data']['aqi'],
+        t=json["data"]["iaqi"]["t"]["v"]
+       { setColor(aqi); setcity(); }
        
       
+  void setcity(){
+    city=city.split(",")[1];
+  }
 
   void setColor(int aqi){
      if(0<=aqi && aqi<=50){
@@ -48,7 +53,8 @@ class PmData {
     return {
       'city': city,
       'aqi': aqi,
-       'state':state
+       'state':state,
+       't':t
     };
   }
 }
