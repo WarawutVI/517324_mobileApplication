@@ -51,7 +51,7 @@ class _PmPageState extends State<PmPage> {
             SizedBox(height: 20),
             Text(
               '${pmData?.city}',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold,),
             ),
             SizedBox(height: 40),
             Container(

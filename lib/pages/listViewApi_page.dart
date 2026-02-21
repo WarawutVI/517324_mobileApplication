@@ -13,22 +13,14 @@ class ListviewapiPage extends StatefulWidget {
 
 class _ListviewapiPageState extends State<ListviewapiPage> {
   List<dynamic> users = [];
-  List<Userlist> listUser=[];
 
-  void initState(){
-    super.initState();
-    fetchUser();
-  }
   void fetchUser() async {
     try {
       var res = await http.get(Uri.parse("https://dummyjson.com/users/"));
       if (res.statusCode == 200) {
         var data = jsonDecode(res.body); // cast to jso
-
         setState(() {
           users = data['users'];
-          listUser = users.map((item) => Userlist.fromJson(item)).toList();
-         
         });
         print(users[0]);
       }
@@ -42,12 +34,12 @@ class _ListviewapiPageState extends State<ListviewapiPage> {
     return Scaffold(
       appBar: AppBar(title: Text("Listview APi")),
       body: ListView.separated(
-        itemCount: listUser.length,
+        itemCount: users.length,
         separatorBuilder: (BuildContext context, int index) => const Divider(),
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
             leading: Text("${index+1}"),
-            title: Text("${listUser[index].firstName}"));
+            title: Text("${users[index]['firstName']}"));
         },
       ),
       floatingActionButton: ElevatedButton(onPressed: (){

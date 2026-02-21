@@ -1,68 +1,59 @@
 import 'dart:convert';
 
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:my_app/models/listapi_data.dart';
+import 'package:http/http.dart' as http;
 
-class ListUserScreenV2 extends StatefulWidget {
-  const ListUserScreenV2({super.key});
+class ListviewapiPage2 extends StatefulWidget {
+  const ListviewapiPage2({super.key});
 
   @override
-  State<ListUserScreenV2> createState() => _ListUserScreenV2State();
+  State<ListviewapiPage2> createState() => _ListviewapiPageState();
 }
 
-class _ListUserScreenV2State extends State<ListUserScreenV2> {
-  List<dynamic> listUser = [];
-  List<Userlist> listUserV2 = [];
-
-  @override
-  void initState() {
+class _ListviewapiPageState extends State<ListviewapiPage2> {
+  List<dynamic> users = [];
+  List<Userlist> listuser=[];
+   void initState() {
     // TODO: implement initState
     super.initState();
-    getUser();
+     fetchUser();
   }
 
-  void getUser() async {
-    setState(() {
-      listUserV2 = [];
-    });
+  void fetchUser() async {
     try {
-      var response = await http.get(Uri.parse('https://dummyjson.com/user'));
-      if (response.statusCode == 200) {
-        var data = jsonDecode(response.body);
+      setState(() {listuser = [];});
+      var res = await http.get(Uri.parse("https://dummyjson.com/users/"));
+      if (res.statusCode == 200) {
+        var data = jsonDecode(res.body); // cast to jso
         List<dynamic> jsonList = data['users'];
         setState(() {
-          listUserV2 = jsonList.map((item) => Userlist.fromJson(item)).toList();
+          listuser = jsonList.map((item) => Userlist.fromJson(item)).toList();
         });
+
+        print(users[0]);
       }
     } catch (e) {
-      print('Error : $e');
+      print('$e');
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Call API'),
-      ),
+      appBar: AppBar(title: Text("Listview APi")),
       body: ListView.separated(
-        itemCount: listUserV2.length,
+        itemCount: listuser.length,
         separatorBuilder: (BuildContext context, int index) => const Divider(),
         itemBuilder: (BuildContext context, int index) {
           return ListTile(
-            leading: Text('ID ${listUserV2[index].id}'),
-            title: Text(listUserV2[index].fullName),
-            subtitle: Text(listUserV2[index].email),
-          );
+            leading: Text("${index+1}"),
+            title: Text("${listuser[index].fullName}"));
         },
       ),
-      floatingActionButton: ElevatedButton(
-          onPressed: () {
-            getUser();
-          },
-          child: Text('refresh')),
+      floatingActionButton: ElevatedButton(onPressed: (){
+        fetchUser();
+      }, child: Text("call api") ),
     );
   }
 }
