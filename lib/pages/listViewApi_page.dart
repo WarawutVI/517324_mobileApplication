@@ -12,40 +12,40 @@ class ListviewapiPage extends StatefulWidget {
 }
 
 class _ListviewapiPageState extends State<ListviewapiPage> {
-  
-  List<dynamic> users=[];
+  List<dynamic> users = [];
 
-  void fetchUser()async{
-    try{
+  void fetchUser() async {
+    try {
       var res = await http.get(Uri.parse("https://dummyjson.com/users/"));
-      var data=jsonDecode(res.body); // cast to json
-      setState(() {
-        users= data['users'];
-      });
-
-      print(users[0]);
-
-    }catch(e){
+      if (res.statusCode == 200) {
+        var data = jsonDecode(res.body); // cast to json
+        List<dynamic> listuser = data["users"];
+        setState(() {
+          users = data['users'];
+        });
+        print(users[0]);
+      }
+    } catch (e) {
       print('$e');
     }
   }
-  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-          appBar: AppBar(
-            title: Text("Listview APi"),
-          ),
-          body: Column(
-            children: [
-              ElevatedButton(onPressed:(){
-                fetchUser();
-              } , child:Text("Call Api")),
-             
-            ],
-            
-          )
+      appBar: AppBar(title: Text("Listview APi")),
+      body: ListView.separated(
+        itemCount: users.length,
+        separatorBuilder: (BuildContext context, int index) => const Divider(),
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            leading: Text("${index+1}"),
+            title: Text("${users[index]['firstName']}"));
+        },
+      ),
+      floatingActionButton: ElevatedButton(onPressed: (){
+        fetchUser();
+      }, child: Text("call api") ),
     );
   }
 }
