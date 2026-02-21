@@ -9,6 +9,7 @@ import 'package:my_app/pages/dropDonw_page.dart';
 import 'package:my_app/pages/formInput.dart';
 import 'package:my_app/pages/formPage.dart';
 import 'package:my_app/pages/checkBox_page.dart';
+import 'package:my_app/pages/listViewApi_page.dart';
 import 'package:my_app/screen/content_screen.dart';
 import 'package:my_app/screen/greeting_screen.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter First Project',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/pmpage',
+      initialRoute: '/listapi',
       routes: {
         // "/greeting": (context) => GreetingScreen(name:"Warawut Vichaiya", bgColor:Colors.white,imageUrl: "https://www.metlifepetinsurance.com/content/dam/metlifecom/us/metlifepetinsurance/images/blog/breed-spotlight/pug.webp",),
         // "/content": (context) => ContentScreen(),
@@ -36,7 +37,8 @@ class MyApp extends StatelessWidget {
         "/checkbox": (context) => CheckboxPage(),
         "/forminput": (context) => Forminput(),
         "/callapi": (context) => CallapiPage(),
-        "/pmpage": (context) => PmPage()
+        "/pmpage": (context) => PmPage(),
+        "/listapi" : (context) => ListviewapiPage()
       },
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 224, 128, 248)),

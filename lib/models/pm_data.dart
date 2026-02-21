@@ -7,7 +7,7 @@ class PmData {
   final int aqi;
   Color? color;
   String? state;
-  final int t;
+  final int t; 
 
   // Constructor
   PmData(this.city,this.aqi,this.t){

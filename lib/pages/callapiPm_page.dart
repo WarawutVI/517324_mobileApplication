@@ -49,7 +49,7 @@ class _PmPageState extends State<PmPage> {
         child: Column(
           children: [
             SizedBox(height: 20),
-           Text(
+            Text(
               '${pmData?.city}',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
@@ -57,13 +57,18 @@ class _PmPageState extends State<PmPage> {
             Container(
               height: 200,
               width: 300,
-              color: pmData?.color,
+              
               child: Center(
                 child: Text(
                   '${pmData?.aqi}',
                   style: TextStyle(fontSize: 70, color: Colors.white),
                 ),
               ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: pmData?.color,
+              ),
+              
             ),
             SizedBox(height: 40),
             Text(
@@ -77,19 +82,15 @@ class _PmPageState extends State<PmPage> {
             SizedBox(height: 30),
             Text(
               'temperature: ${pmData?.t} °C',
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                
-              ),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 80),
             ElevatedButton(
               onPressed: () {
                 fetchUser();
               },
-              child: Text('Refresh',style:TextStyle(color: Colors.white),),
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.green, ),
+              child: Text('Refresh', style: TextStyle(color: Colors.white)),
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
             ),
           ],
         ),
