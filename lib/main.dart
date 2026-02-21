@@ -1,8 +1,11 @@
 import 'dart:math';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:my_app/Homeworks/answer_portal.dart';
 import 'package:my_app/components/Narbar.dart';
+import 'package:my_app/firebase_db_screen/list_firebase_data.dart';
+import 'package:my_app/firebase_options.dart';
 import 'package:my_app/pages/callapiPm_page.dart';
 import 'package:my_app/pages/callapi_page.dart';
 import 'package:my_app/pages/dropDonw_page.dart';
@@ -13,8 +16,11 @@ import 'package:my_app/pages/listViewApi_page.dart';
 import 'package:my_app/pages/listViewApi2_page.dart';
 import 'package:my_app/screen/content_screen.dart';
 import 'package:my_app/screen/greeting_screen.dart';
+import 'package:my_app/screen/list_product.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -27,7 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter First Project',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/pmpage',
+      initialRoute: '/listfirebase',
       routes: {
         // "/greeting": (context) => GreetingScreen(name:"Warawut Vichaiya", bgColor:Colors.white,imageUrl: "https://www.metlifepetinsurance.com/content/dam/metlifecom/us/metlifepetinsurance/images/blog/breed-spotlight/pug.webp",),
         // "/content": (context) => ContentScreen(),
@@ -39,12 +45,15 @@ class MyApp extends StatelessWidget {
         "/forminput": (context) => Forminput(),
         "/callapi": (context) => CallapiPage(),
         "/pmpage": (context) => PmPage(),
-        "/listapi" : (context) => ListviewapiPage(),
-        "/listapi2" : (context) => ListviewapiPage2()
-       
+        "/listapi": (context) => ListviewapiPage(),
+        "/listapi2": (context) => ListviewapiPage2(),
+        "/listproduct": (context) => ListProduct(),
+        "/listfirebase": (context) => ListFirebaseData(),
       },
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 224, 128, 248)),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 224, 128, 248),
+        ),
         useMaterial3: true,
       ),
       home: BottomNavigatorExample(),
@@ -52,7 +61,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-
-
