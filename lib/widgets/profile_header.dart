@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ProfileHeadrt extends StatelessWidget {
   const ProfileHeadrt({super.key});
-
+   // Instargram โดยการสร้างแบบ UI Composition  
   @override
   Widget build(BuildContext context) {
     return Column(

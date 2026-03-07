@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 class PostGrid extends StatelessWidget {
   const PostGrid({super.key});
-
+  // Instargram โดยการสร้างแบบ UI Composition  
   @override
   Widget build(BuildContext context) {
-    // 1. Wrap in DefaultTabController to manage the bar state
+   
     return DefaultTabController(
       length: 3,
       child: Column(
         children: [
-          // 2. The Navigation Bar (Icons)
+        
           const TabBar(
             labelColor: Colors.black,
             unselectedLabelColor: Colors.grey,
@@ -22,15 +22,15 @@ class PostGrid extends StatelessWidget {
             ],
           ),
 
-          // 3. Expanded is REQUIRED here to prevent the Layout Error
+        
           Expanded(
             child: TabBarView(
               children: [
-                // TAB 1: Posts Grid
+             
                 buildGrid(),
-                // TAB 2: Reels
+               
                 const Center(child: Text("Reels Page")),
-                // TAB 3: Tagged
+              
                 const Center(child: Text("Tagged Page")),
               ],
             ),
@@ -40,10 +40,10 @@ class PostGrid extends StatelessWidget {
     );
   }
 
-  // Helper method for your Grid
+  
   Widget buildGrid() {
     return GridView.builder(
-      // shrinkWrap is not needed now because of Expanded above
+     
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         crossAxisSpacing: 2.0,
