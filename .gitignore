@@ -43,3 +43,11 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+# Ignore the socket file causing the crash
+database/mysql.sock
+
+# Ignore node_modules (this fixes the warnings in your image)
+node_modules/
+api/node_modules/

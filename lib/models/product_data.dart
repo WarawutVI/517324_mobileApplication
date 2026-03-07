@@ -1,9 +1,9 @@
 // Model Class
 class Product {
-  final String id;
+  final int id;
   final String name;
   final String description;
-  final String price;
+  final double price;
   // Constructor
   Product(this.id, this.name,this.description,this.price);
 

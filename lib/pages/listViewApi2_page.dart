@@ -32,6 +32,7 @@ class _ListviewapiPageState extends State<ListviewapiPage2> {
         });
 
         print(users[0]);
+        print(jsonList);
       }
     } catch (e) {
       print('$e');

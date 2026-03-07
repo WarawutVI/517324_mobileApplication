@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:my_app/Homeworks/Product_page.dart';
 import 'package:my_app/Homeworks/answer_portal.dart';
 import 'package:my_app/components/Narbar.dart';
 import 'package:my_app/firebase_db_screen/list_firebase_data.dart';
@@ -14,6 +15,7 @@ import 'package:my_app/pages/formPage.dart';
 import 'package:my_app/pages/checkBox_page.dart';
 import 'package:my_app/pages/listViewApi_page.dart';
 import 'package:my_app/pages/listViewApi2_page.dart';
+import 'package:my_app/pages/profile_pageui.dart';
 import 'package:my_app/screen/content_screen.dart';
 import 'package:my_app/screen/greeting_screen.dart';
 import 'package:my_app/screen/list_product.dart';
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter First Project',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/listfirebase',
+      initialRoute: '/profileui',
       routes: {
         // "/greeting": (context) => GreetingScreen(name:"Warawut Vichaiya", bgColor:Colors.white,imageUrl: "https://www.metlifepetinsurance.com/content/dam/metlifecom/us/metlifepetinsurance/images/blog/breed-spotlight/pug.webp",),
         // "/content": (context) => ContentScreen(),
@@ -49,6 +51,8 @@ class MyApp extends StatelessWidget {
         "/listapi2": (context) => ListviewapiPage2(),
         "/listproduct": (context) => ListProduct(),
         "/listfirebase": (context) => ListFirebaseData(),
+        "/productpage": (context) =>ProductPage(),
+        "/profileui": (context) =>ProfilePageui(),
       },
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
