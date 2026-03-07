@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/widgets/action_buttons.dart';
 import 'package:my_app/widgets/post_grid.dart';
-import 'package:my_app/widgets/profile_headrt.dart';
+import 'package:my_app/widgets/profile_header.dart';
 import 'package:my_app/widgets/profile_stats.dart';
 
 class ProfilePageui extends StatefulWidget {

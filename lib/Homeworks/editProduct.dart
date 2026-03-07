@@ -6,7 +6,7 @@ class Editproduct extends StatefulWidget {
   final int id;
   final String initialName;
   final double initialPrice;
-  final String initialDescription; // 1. Added description field
+  final String initialDescription; 
 
   const Editproduct({
     super.key,
@@ -23,14 +23,13 @@ class Editproduct extends StatefulWidget {
 class _EditproductState extends State<Editproduct> {
   late TextEditingController nameController;
   late TextEditingController priceController;
-  late TextEditingController descriptionController; // Fixed typo
-
+  late TextEditingController descriptionController;
   @override
   void initState() {
     super.initState();
     nameController = TextEditingController(text: widget.initialName);
     priceController = TextEditingController(text: widget.initialPrice.toString());
-    descriptionController = TextEditingController(text: widget.initialDescription); // 2. Fixed semicolon & text
+    descriptionController = TextEditingController(text: widget.initialDescription); 
   }
 
   // Always dispose controllers to prevent memory leaks
@@ -51,7 +50,7 @@ class _EditproductState extends State<Editproduct> {
         body: jsonEncode({
           "name": nameController.text,
           "price": double.tryParse(priceController.text) ?? 0.0,
-          "description": descriptionController.text, // 3. Included description in body
+          "description": descriptionController.text,
         }),
       );
 
@@ -71,7 +70,7 @@ class _EditproductState extends State<Editproduct> {
       appBar: AppBar(title: const Text("Edit Product")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: SingleChildScrollView( // Added scroll just in case keyboard covers fields
+        child: SingleChildScrollView( 
           child: Column(
             children: [
               TextField(
@@ -79,7 +78,7 @@ class _EditproductState extends State<Editproduct> {
                 decoration: const InputDecoration(labelText: "Product Name"),
               ),
               TextField(
-                controller: descriptionController, // 4. Added the text field for description
+                controller: descriptionController,
                 decoration: const InputDecoration(labelText: "Description"),
               ),
               TextField(

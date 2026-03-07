@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:firebase_core/firebase_core.dart';
@@ -15,6 +16,7 @@ import 'package:my_app/pages/formPage.dart';
 import 'package:my_app/pages/checkBox_page.dart';
 import 'package:my_app/pages/listViewApi_page.dart';
 import 'package:my_app/pages/listViewApi2_page.dart';
+import 'package:my_app/pages/page_theme_text.dart';
 import 'package:my_app/pages/profile_pageui.dart';
 import 'package:my_app/screen/content_screen.dart';
 import 'package:my_app/screen/greeting_screen.dart';
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter First Project',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/profileui',
+      initialRoute: '/texttheme',
       routes: {
         // "/greeting": (context) => GreetingScreen(name:"Warawut Vichaiya", bgColor:Colors.white,imageUrl: "https://www.metlifepetinsurance.com/content/dam/metlifecom/us/metlifepetinsurance/images/blog/breed-spotlight/pug.webp",),
         // "/content": (context) => ContentScreen(),
@@ -51,17 +53,44 @@ class MyApp extends StatelessWidget {
         "/listapi2": (context) => ListviewapiPage2(),
         "/listproduct": (context) => ListProduct(),
         "/listfirebase": (context) => ListFirebaseData(),
-        "/productpage": (context) =>ProductPage(),
-        "/profileui": (context) =>ProfilePageui(),
+        "/productpage": (context) => ProductPage(),
+        "/profileui": (context) => ProfilePageui(),
+        "/texttheme" :(context) => PageThemeText()
       },
       theme: ThemeData(
+        
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color.fromARGB(255, 224, 128, 248),
         ),
         useMaterial3: true,
+        textTheme:  const TextTheme(
+          bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
+          bodyLarge: TextStyle(fontSize: 30,fontWeight: FontWeight.bold)  )
       ),
+
+
+
       home: BottomNavigatorExample(),
       // home: GreetingScreen(name:"Warawut Vichaiya", bgColor:Colors.white,imageUrl: "https://www.metlifepetinsurance.com/content/dam/metlifecom/us/metlifepetinsurance/images/blog/breed-spotlight/pug.webp",) ,
+    );
+  }
+}
+
+
+class Pagetexttheme extends StatelessWidget {
+  const Pagetexttheme({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // Accessing the theme correctly
+
+    return Scaffold(
+      body: Column(
+        children: [
+          Text("Title",),
+          Text("Subtitle", style: Theme.of(context).textTheme.bodySmall),
+        ],
+      ),
     );
   }
 }
