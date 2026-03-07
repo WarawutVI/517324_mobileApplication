@@ -8,6 +8,7 @@ import 'package:my_app/Homeworks/answer_portal.dart';
 import 'package:my_app/components/Narbar.dart';
 import 'package:my_app/firebase_db_screen/list_firebase_data.dart';
 import 'package:my_app/firebase_options.dart';
+import 'package:my_app/pages/animation_page.dart';
 import 'package:my_app/pages/callapiPm_page.dart';
 import 'package:my_app/pages/callapi_page.dart';
 import 'package:my_app/pages/dropDonw_page.dart';
@@ -18,6 +19,7 @@ import 'package:my_app/pages/listViewApi_page.dart';
 import 'package:my_app/pages/listViewApi2_page.dart';
 import 'package:my_app/pages/page_theme_text.dart';
 import 'package:my_app/pages/profile_pageui.dart';
+import 'package:my_app/pages/trafficlightanimation.dart';
 import 'package:my_app/screen/content_screen.dart';
 import 'package:my_app/screen/greeting_screen.dart';
 import 'package:my_app/screen/list_product.dart';
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter First Project',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/texttheme',
+      initialRoute: '/trafficlightanimate',
       routes: {
         // "/greeting": (context) => GreetingScreen(name:"Warawut Vichaiya", bgColor:Colors.white,imageUrl: "https://www.metlifepetinsurance.com/content/dam/metlifecom/us/metlifepetinsurance/images/blog/breed-spotlight/pug.webp",),
         // "/content": (context) => ContentScreen(),
@@ -55,7 +57,9 @@ class MyApp extends StatelessWidget {
         "/listfirebase": (context) => ListFirebaseData(),
         "/productpage": (context) => ProductPage(),
         "/profileui": (context) => ProfilePageui(),
-        "/texttheme" :(context) => PageThemeText()
+        "/texttheme" :(context) => PageThemeText(),
+        "/animationpage" :(context) => AnimationPage(),
+        "/trafficlightanimate" : (context) => Trafficlightanimation()
       },
       theme: ThemeData(
         
