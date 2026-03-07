@@ -21,7 +21,7 @@ class ProfileStats extends StatelessWidget {
           ),SizedBox(width: 20,),
           Column(
             children: [
-              Text("220",style: TextStyle(fontSize: 20,fontWeight:FontWeight.bold ),),
+              Text("221",style: TextStyle(fontSize: 20,fontWeight:FontWeight.bold ),),
               Text("Following",style: TextStyle(fontSize: 15),)
             ],
           ),
