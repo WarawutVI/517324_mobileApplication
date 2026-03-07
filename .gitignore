@@ -50,4 +50,7 @@ database/mysql.sock
 
 # Ignore node_modules (this fixes the warnings in your image)
 node_modules/
-api/node_modules/
+api
+
+
+fastapi-mysql-docker-ws
