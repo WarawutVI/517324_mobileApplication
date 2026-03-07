@@ -26,11 +26,6 @@ class _ProfilePageuiState extends State<ProfilePageui> {
             ],
           ),
           ActionButtons(),
-          Container(
-            width: double.infinity,
-            height: 60,
-            color: Colors.redAccent,
-          ),
           Expanded(
             // <--- This is the magic fix
             child: PostGrid(),
