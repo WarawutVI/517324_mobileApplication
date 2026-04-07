@@ -27,7 +27,6 @@ class _ProfilePageuiState extends State<ProfilePageui> {
           ),
           ActionButtons(),
           Expanded(
-            // <--- This is the magic fi
             child: PostGrid(),
           ),
         ],

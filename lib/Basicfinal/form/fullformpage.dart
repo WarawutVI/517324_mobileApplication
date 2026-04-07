@@ -21,6 +21,7 @@ class _FullformpageState extends State<Fullformpage> {
       body: Column(
         children: [
           Form(
+            key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -34,7 +35,6 @@ class _FullformpageState extends State<Fullformpage> {
                     return null;
                   },
                 ),
-
                 TextFormField(
                   controller: _emailController,
                   decoration: InputDecoration(labelText: "Email"),
@@ -98,15 +98,15 @@ class _FullformpageState extends State<Fullformpage> {
                     });
                   },
                 ),
-                 ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    print("User: ${_nameController.text}");
-                    print("Email: ${_emailController.text}");
-                  }
-                },
-                child: Text("Save"),
-              ),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      print("User: ${_nameController.text}");
+                      print("Email: ${_emailController.text}");
+                    }
+                  },
+                  child: Text("Save"),
+                ),
               ],
             ),
           ),

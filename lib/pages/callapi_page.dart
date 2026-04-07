@@ -18,7 +18,7 @@ class _CallApiScreenState extends State<CallapiPage> {
       var response = await http.get(Uri.parse('https://dummyjson.com/users/1'));
       print(response.statusCode);
       if (response.statusCode == 200) {
-        var data = jsonDecode(response.body);
+        var data = jsonDecode(response.body); //Json to Object
         User user = User.fromJson(data);
         setState(() {
           userData = user;

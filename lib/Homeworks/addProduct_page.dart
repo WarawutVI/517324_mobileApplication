@@ -43,11 +43,9 @@ class _AddproductPageState extends State<AddproductPage> {
       if (res.statusCode == 201) {
         print("complete add");
         if (mounted) {
-           Navigator.pop(context, true);
+          Navigator.pop(context, true);
         }
       }
-
-     
     } catch (e) {
       print(e);
     }
@@ -88,11 +86,14 @@ class _AddproductPageState extends State<AddproductPage> {
                 }
               },
             ),
-            ElevatedButton(onPressed: (){
-              if (_formkey.currentState!.validate()) {
-      postdata();
-    }
-            }, child: Text("sunmit")),
+            ElevatedButton(
+              onPressed: () {
+                if (_formkey.currentState!.validate()) {
+                  postdata();
+                }
+              },
+              child: Text("sunmit"),
+            ),
           ],
         ),
       ),
